@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gjn-Gl-OVq">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Pop View Controller-->
+        <scene sceneID="gfl-td-uyu">
+            <objects>
+                <viewController id="gjn-Gl-OVq" customClass="PopViewController" customModule="weibo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ObE-cK-DB7"/>
+                        <viewControllerLayoutGuide type="bottom" id="9pR-WT-CMs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OU3-7s-ZbX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="popover_background" translatesAutoresizingMaskIntoConstraints="NO" id="sfU-Cs-MFL">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fOk-ea-yik">
+                                <rect key="frame" x="40" y="40" width="520" height="540"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fOk-ea-yik" firstAttribute="top" secondItem="ObE-cK-DB7" secondAttribute="bottom" constant="20" id="IyA-CH-CVe"/>
+                            <constraint firstItem="9pR-WT-CMs" firstAttribute="top" secondItem="sfU-Cs-MFL" secondAttribute="bottom" id="MBm-hZ-Xo9"/>
+                            <constraint firstItem="sfU-Cs-MFL" firstAttribute="leading" secondItem="OU3-7s-ZbX" secondAttribute="leading" id="S4Z-90-dvX"/>
+                            <constraint firstItem="sfU-Cs-MFL" firstAttribute="top" secondItem="ObE-cK-DB7" secondAttribute="bottom" id="U7Q-sT-r7h"/>
+                            <constraint firstItem="9pR-WT-CMs" firstAttribute="top" secondItem="fOk-ea-yik" secondAttribute="bottom" constant="20" id="dkI-gu-i84"/>
+                            <constraint firstAttribute="trailing" secondItem="sfU-Cs-MFL" secondAttribute="trailing" id="hcY-Se-HT0"/>
+                            <constraint firstAttribute="trailing" secondItem="fOk-ea-yik" secondAttribute="trailing" constant="20" id="pux-Rj-T0m"/>
+                            <constraint firstItem="fOk-ea-yik" firstAttribute="leading" secondItem="OU3-7s-ZbX" secondAttribute="leading" constant="20" id="tQb-G6-e6l"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xP6-wd-nje" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="221" y="366"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="U4c-hY-crD">
+            <objects>
+                <tableViewController id="5dx-US-gJH" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Cpj-aY-MIZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="kr7-q0-ceE">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kr7-q0-ceE" id="yT7-VD-jTD">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="5dx-US-gJH" id="1NG-ym-xoh"/>
+                            <outlet property="delegate" destination="5dx-US-gJH" id="gCj-7z-fse"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q3I-Jc-65O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="popover_background" width="217" height="49"/>
+    </resources>
+</document>
