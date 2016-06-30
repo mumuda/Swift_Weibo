@@ -21,6 +21,7 @@
 		4F5AFE9D1D0FA838001A7504 /* NetWorkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5AFE951D0FA65E001A7504 /* NetWorkTools.swift */; };
 		4F5AFE9F1D0FD56C001A7504 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5AFE9E1D0FD56C001A7504 /* UserAccount.swift */; };
 		4F5AFEA11D0FE3A1001A7504 /* String+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5AFEA01D0FE3A1001A7504 /* String+Category.swift */; };
+		4F5FB0551D25283C00CBBA32 /* NSDate+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5FB0541D25283C00CBBA32 /* NSDate+Category.swift */; };
 		4F644FFC1CF7D70A00B1D98C /* NullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F644FFA1CF7D70A00B1D98C /* NullViewController.swift */; };
 		4F6B71741D1290280023679A /* NewFeatureCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B71731D1290280023679A /* NewFeatureCollectionViewController.swift */; };
 		4F8535251CF81ED100A70056 /* MainVCSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F8535241CF81ED100A70056 /* MainVCSettings.json */; };
@@ -76,6 +77,7 @@
 		4F5AFE951D0FA65E001A7504 /* NetWorkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetWorkTools.swift; sourceTree = "<group>"; };
 		4F5AFE9E1D0FD56C001A7504 /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		4F5AFEA01D0FE3A1001A7504 /* String+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Category.swift"; sourceTree = "<group>"; };
+		4F5FB0541D25283C00CBBA32 /* NSDate+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Category.swift"; sourceTree = "<group>"; };
 		4F644FFA1CF7D70A00B1D98C /* NullViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NullViewController.swift; sourceTree = "<group>"; };
 		4F6B71731D1290280023679A /* NewFeatureCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFeatureCollectionViewController.swift; sourceTree = "<group>"; };
 		4F8535241CF81ED100A70056 /* MainVCSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainVCSettings.json; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 				4F85352A1CF836FB00A70056 /* UIView+AutoLayout.swift */,
 				4F5AFE951D0FA65E001A7504 /* NetWorkTools.swift */,
 				4F5AFEA01D0FE3A1001A7504 /* String+Category.swift */,
+				4F5FB0541D25283C00CBBA32 /* NSDate+Category.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				4F4778401D1391920042A3F0 /* WelcomeViewController.swift in Sources */,
 				4F304C241CFE6EB3007E7263 /* PopViewController.swift in Sources */,
 				4FD601D61CF6F30000889545 /* HomeTableViewController.swift in Sources */,
+				4F5FB0551D25283C00CBBA32 /* NSDate+Category.swift in Sources */,
 				4F45294C1D1A194E00FCA6D3 /* UserModel.swift in Sources */,
 				4F45294E1D1A210100FCA6D3 /* StatusTableViewCell.swift in Sources */,
 				4F8535271CF82C9400A70056 /* BaseTableViewController.swift in Sources */,

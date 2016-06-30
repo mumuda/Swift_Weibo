@@ -11,7 +11,15 @@ import UIKit
 
 class Status: NSObject {
     /// 微博创建时间
-    var created_at: String?
+    var created_at: String?{
+         didSet{
+            if let time = created_at
+            {
+                let date = NSDate.sinaDate(time)
+                created_at = date.dateDesctiption
+            }
+        }
+    }
     /// 微博ID
     var id: Int = 0
     /// 微博信息内容

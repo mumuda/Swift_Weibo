@@ -13,7 +13,7 @@ class StatusTableViewCell: UITableViewCell {
     var status = Status?(){
         didSet{
             nameLabel.text = status!.user!.name
-            timeLabel.text = "刚刚"
+            timeLabel.text = status!.created_at
             
             contentLabel.text = status!.text
             
