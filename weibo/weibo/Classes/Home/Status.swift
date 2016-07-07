@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SDWebImage
 
 class Status: NSObject {
     /// 微博创建时间
@@ -48,7 +48,21 @@ class Status: NSObject {
         }
     }
     /// 配图数组
-    var pic_urls: [[String: AnyObject]]?
+    var pic_urls: [[String: AnyObject]]?{
+        didSet{
+            // 初始化数组～～
+            storedPicUrlS = [NSURL]()
+            for dict in pic_urls! {
+                if let urlStr = dict["thumbnail_pic"] {
+                    storedPicUrlS?.append(NSURL(string: urlStr as! String)!)
+                }
+            }
+        }
+    }
+    
+    /// 
+    var storedPicUrlS:[NSURL]?
+    
     /// 用户模型
     var user: UserModel?
     
@@ -63,12 +77,42 @@ class Status: NSObject {
             // 1.取出statuese key 对应的数组（存储的都是字典）
             let models = dictTwoModel(JSON!["statuses"] as! [[String: AnyObject]])
             print(models)
-            // 2.遍历数组，将字典转换为模型
             
-            finished(models: models, error: nil)
+            // 缓存微博配图
+            cacheStatusImages(models, finished: finished)
+            
+            // 2.遍历数组，将字典转换为模型
+
             }) { (_, error) in
                 print(error)
                 finished(models: nil, error: error)
+        }
+    }
+    
+    class func cacheStatusImages(list: [Status],finished:(models:[Status]?,error:NSError?)->()){
+        
+        let group = dispatch_group_create()
+        
+        
+        for status in list {
+            
+            for url in status.storedPicUrlS!
+            {
+                // 将当前下载添加到组中
+                dispatch_group_enter(group)
+                
+                SDWebImageManager.sharedManager().downloadImageWithURL(url, options: SDWebImageOptions(rawValue:0), progress: nil, completed: { (_, _, _, _, _) in
+                    print("OK")
+                    dispatch_group_leave(group)
+                })
+            }
+            
+            // 离开当前组
+            dispatch_group_notify(group, dispatch_get_main_queue(), {
+                // 来到这个地方，说明一定是所有图片都下载完成
+                finished(models: list, error: nil)
+            })
+            
         }
     }
     
