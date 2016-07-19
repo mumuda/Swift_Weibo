@@ -105,7 +105,6 @@ extension OAuthViewController :UIWebViewDelegate
             
             // 1.字典转模型
             let account = UserAccount.init(dict: JSON as! [String:AnyObject])
-            print(account)
             // 获取用户信息
             account.loadUserInfo({ (account, error) in
                 if account != nil

@@ -30,8 +30,6 @@ class WelcomeViewController: UIViewController {
         
         // 提示：修改约束不会立即生效，添加了一个标记，同意由自动布局系统更新约束
         iconBottomCons?.constant = -UIScreen.mainScreen().bounds.height - iconBottomCons!.constant
-        print(-UIScreen.mainScreen().bounds.height)
-        print(iconBottomCons!.constant)
         
         UIView.animateWithDuration(1.2, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 10, options: UIViewAnimationOptions(rawValue:0), animations: { 
             // 强制更新约束

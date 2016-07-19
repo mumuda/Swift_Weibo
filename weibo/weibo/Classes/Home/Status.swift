@@ -76,7 +76,6 @@ class Status: NSObject {
         NetWorkTools.shareNetWorkTools().GET(path, parameters: params, success: { (_, JSON) in
             // 1.取出statuese key 对应的数组（存储的都是字典）
             let models = dictTwoModel(JSON!["statuses"] as! [[String: AnyObject]])
-            print(models)
             
             // 缓存微博配图
             cacheStatusImages(models, finished: finished)
@@ -102,7 +101,6 @@ class Status: NSObject {
                 dispatch_group_enter(group)
                 
                 SDWebImageManager.sharedManager().downloadImageWithURL(url, options: SDWebImageOptions(rawValue:0), progress: nil, completed: { (_, _, _, _, _) in
-                    print("OK")
                     dispatch_group_leave(group)
                 })
             }

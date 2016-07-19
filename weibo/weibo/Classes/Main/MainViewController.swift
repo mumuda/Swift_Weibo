@@ -87,7 +87,6 @@ class MainViewController: UITabBarController {
                 // 3.序列化json数据 －>array  MutableContainers 可变 MutableLeaves子节点可变（有bug  过时） AllowFragments：不是常规的json
                 // 有可能发生异常的代码防到这里 try!强制异常，发生异常会崩溃，try  发生异常会跳到catch
                 let dictArray = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.AllowFragments)
-                print(dictArray)
                 
                 // 4.遍历数组，动态创建控制器和设置数据
                 for dict in dictArray as! [[String:String]]

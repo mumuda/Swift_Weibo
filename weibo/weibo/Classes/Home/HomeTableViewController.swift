@@ -40,9 +40,8 @@ class HomeTableViewController: BaseTableViewController {
         
         // 注册一个cell
         tableView.registerClass(StatusTableViewCell.self, forCellReuseIdentifier: HomeReuseIdentifier)
-//        tableView.rowHeight = 200
-        tableView.estimatedRowHeight = 200
-        tableView.rowHeight = UITableViewAutomaticDimension
+        
+        
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         // 4.加载微博数据
         loadData()
@@ -119,10 +118,7 @@ class HomeTableViewController: BaseTableViewController {
         
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
     
     // MARK: - 懒加载
     // 一定要定义一个属性，来保存负责转场的对象，否则回保存
@@ -132,6 +128,15 @@ class HomeTableViewController: BaseTableViewController {
         pov.presentedFrame = CGRect(x: 100, y: 56, width: 200, height: 200)
         return pov
     }()
+    
+    // 缓存行高
+    private var rowHeightCache = [Int: CGFloat]()
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // 处理内存警告
+        rowHeightCache.removeAll()
+    }
     
 }
 
@@ -147,6 +152,23 @@ extension HomeTableViewController
         let status = statuses![indexPath.row]
         cell.status = status
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let statu = statuses![indexPath.row]
+        
+        if rowHeightCache[statu.id] != nil {
+            print("缓存中获取")
+            return rowHeightCache[statu.id]!
+        }
+        print("重新计算")
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier(HomeReuseIdentifier) as! StatusTableViewCell
+        let rowHeight = cell.rowHeight(statu)
+        
+        rowHeightCache[statu.id] = rowHeight
+        
+        return rowHeight
     }
 }
 
