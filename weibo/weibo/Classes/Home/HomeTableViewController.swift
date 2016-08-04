@@ -39,7 +39,7 @@ class HomeTableViewController: BaseTableViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeTableViewController.change), name: ZDPopoverAnimalWillDismiss, object: nil)
         
         // 注册一个cell
-        tableView.registerClass(StatusTableViewCell.self, forCellReuseIdentifier: HomeReuseIdentifier)
+        tableView.registerClass(StatusNormalTableCell.self, forCellReuseIdentifier: HomeReuseIdentifier)
         
         
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
@@ -158,10 +158,8 @@ extension HomeTableViewController
         let statu = statuses![indexPath.row]
         
         if rowHeightCache[statu.id] != nil {
-            print("缓存中获取")
             return rowHeightCache[statu.id]!
         }
-        print("重新计算")
         
         let cell = tableView.dequeueReusableCellWithIdentifier(HomeReuseIdentifier) as! StatusTableViewCell
         let rowHeight = cell.rowHeight(statu)
